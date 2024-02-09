@@ -4,6 +4,7 @@ import AppHeader from "./components/AppHeader.vue";
 export default {
   data() {
     return {
+      // HEADER DATA
       navLinks: [
         {
           label: "Donna",
@@ -21,6 +22,25 @@ export default {
           active: false,
         },
       ],
+
+      logo: "./src/assets/img/boolean-logo.png",
+
+      shopIcons: [
+        {
+          url: "#",
+          icon: "bi bi-person",
+        },
+        {
+          url: "#",
+          icon: "bi bi-heart",
+        },
+        {
+          url: "#",
+          icon: "bi bi-bag",
+        },
+      ],
+
+      //  BODY DATA
 
       products: [
         {
@@ -131,6 +151,8 @@ export default {
   components: { AppHeader },
 };
 </script>
-<template><AppHeader :navBar="navLinks"></AppHeader></template>
+<template>
+  <AppHeader :navBar="navLinks" :logo="logo" :icons="shopIcons"></AppHeader>
+</template>
 
-<style lang="scss" scoped></style>
+<style lang="scss"></style>
