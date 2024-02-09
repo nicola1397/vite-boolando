@@ -1,5 +1,6 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import AppShop from "./components/AppShop.vue";
 
 export default {
   data() {
@@ -50,6 +51,7 @@ export default {
           brand: "Levi's",
           name: "Relaxed Fit",
           price: 29.99,
+          discount: 0.5,
           isInFavorites: true,
           badges: [
             {
@@ -69,6 +71,7 @@ export default {
           brand: "Guess",
           name: "Roses Tee",
           price: 20.99,
+          discount: 0.3,
           isInFavorites: true,
           badges: [
             {
@@ -84,6 +87,7 @@ export default {
           brand: "Come Zucchero Filato",
           name: "Voglia di colori pastello",
           price: 129.99,
+          discount: 0.3,
           isInFavorites: false,
           badges: [
             {
@@ -99,6 +103,7 @@ export default {
           brand: "Levi's",
           name: "Tee Unisex",
           price: 14.99,
+          discount: 0.5,
           isInFavorites: false,
           badges: [
             {
@@ -118,6 +123,7 @@ export default {
           brand: "Maya Deluxe",
           name: "Stripe Bodice",
           price: 99.99,
+          discount: 0.5,
           isInFavorites: true,
           badges: [
             {
@@ -148,11 +154,12 @@ export default {
       ],
     };
   },
-  components: { AppHeader },
+  components: { AppHeader, AppShop },
 };
 </script>
 <template>
   <AppHeader :navBar="navLinks" :logo="logo" :icons="shopIcons"></AppHeader>
+  <AppShop :showcase="products" :badges="products.badges"></AppShop>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss" scoped></style>
