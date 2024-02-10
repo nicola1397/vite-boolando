@@ -68,7 +68,7 @@ a.card-wrapper {
 }
 
 .display {
-  padding-top: 60px;
+  padding: 60px 0;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
