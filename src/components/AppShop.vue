@@ -21,6 +21,14 @@ export default {
 <template>
   <div class="display">
     <div class="product" v-for="(item, index) in showcase">
+      <span class="heartfill">
+        <i
+          class="bi bi-heart-fill"
+          :class="{ liked: item.isInFavorites }"
+          @click="item.isInFavorites = !item.isInFavorites"
+        ></i>
+      </span>
+
       <a href="#" class="card-wrapper"
         ><span class="image-flip">
           <img
@@ -33,6 +41,13 @@ export default {
             :alt="item.id"
             class="b-image"
           />
+          <div class="labelcontainer">
+            <span
+              v-for="badge in item.badges"
+              :class="badge.type == `discount` ? `redlabel` : `greenlabel`"
+              >{{ badge.value }}</span
+            >
+          </div>
         </span>
         <span class="small-txt-bk">{{ item.brand }}</span>
         <span class="productname">{{ item.name }}</span>
@@ -48,12 +63,21 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+a.card-wrapper {
+  display: block;
+}
+
 .display {
   padding-top: 60px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 60px;
+  margin: 0 var(--page-gutter);
+}
+
+.product {
+  width: calc(100% / 3 - 20px);
 }
 
 // DISPLAY IMAGE
@@ -118,15 +142,18 @@ img.b-image {
 
 /* On top labels */
 
+.labelcontainer {
+  position: absolute;
+  top: 90%;
+  z-index: 1;
+  left: 0;
+}
+
 .redlabel {
   font-weight: 700;
   background-color: red;
   color: white;
   padding: 5px 10px;
-  position: relative;
-  top: calc(80% - 15px);
-  right: 48px;
-  z-index: 1;
 }
 
 .greenlabel {
@@ -134,9 +161,19 @@ img.b-image {
   background-color: green;
   color: white;
   padding: 5px 10px;
+}
+
+.product .bi-heart-fill {
+  color: #555555;
+  font-size: x-large;
+  background-color: aliceblue;
+  padding: 10px 10px;
   position: relative;
-  top: calc(80% - 15px);
-  right: 48px;
+  top: 70px;
+  left: calc(100% - 44px);
   z-index: 1;
+}
+.product .bi-heart-fill.liked {
+  color: red;
 }
 </style>
