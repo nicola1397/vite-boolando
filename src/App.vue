@@ -1,6 +1,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import AppShop from "./components/AppShop.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
   data() {
@@ -152,14 +153,54 @@ export default {
           ],
         },
       ],
+
+      // FOOTER DATA
+      footerLegalLinks: [
+        {
+          label: "Informazioni legali",
+          url: "#",
+        },
+        {
+          label: "Informativa sulla privacy",
+          url: "#",
+        },
+        {
+          label: "Diritto di recesso",
+          url: "#",
+        },
+      ],
+
+      footerSocialLinks: [
+        {
+          label: "bi bi-twitter",
+          url: "#",
+        },
+        {
+          label: "bi bi-facebook",
+          url: "#",
+        },
+        {
+          label: "bi bi-instagram",
+          url: "#",
+        },
+        {
+          label: "bi bi-pinterest",
+          url: "#",
+        },
+        {
+          label: "bi bi-youtube",
+          url: "#",
+        },
+      ],
     };
   },
-  components: { AppHeader, AppShop },
+  components: { AppHeader, AppShop, AppFooter },
 };
 </script>
 <template>
   <AppHeader :navBar="navLinks" :logo="logo" :icons="shopIcons"></AppHeader>
   <AppShop :showcase="products" :badges="products.badges"></AppShop>
+  <AppFooter :legal="footerLegalLinks" :social="footerSocialLinks"></AppFooter>
 </template>
 
 <style lang="scss" scoped></style>
